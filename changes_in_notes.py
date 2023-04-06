@@ -12,7 +12,7 @@ def read_notes():
     with codecs.open("notes.csv", "r", "utf-8") as file:
         reader = csv.reader(file)
         for i, row in enumerate(reader):
-            print(f"{i + 1} {''.join(row)}")
+            print(f"{i + 1} {' '.join(row)}")
 
 
 def dell_notes():
@@ -42,7 +42,7 @@ def correct_notes():
     else:
         print(f"Заметка в строчке {int(corrected_note)}:\n {''.join(rows[int(corrected_note) - 1])}")
         print("Введите вместо нее новую заметку и нажмите Enter")
-        rows[int(corrected_note) - 1] = input()
+        rows[int(corrected_note) - 1] = [input()]
     with codecs.open("notes.csv", "w", "utf-8") as file:
         writer = csv.writer(file)
         writer.writerows(rows)
